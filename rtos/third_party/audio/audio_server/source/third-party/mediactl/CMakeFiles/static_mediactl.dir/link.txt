@@ -1,0 +1,2 @@
+/home/sch/arm-rockchip830-linux-uclibcgnueabihf/bin/arm-rockchip830-linux-uclibcgnueabihf-ar qc libstatic_mediactl.a  CMakeFiles/static_mediactl.dir/v4l2subdev.c.o CMakeFiles/static_mediactl.dir/mediactl.c.o
+/home/sch/arm-rockchip830-linux-uclibcgnueabihf/bin/arm-rockchip830-linux-uclibcgnueabihf-ranlib libstatic_mediactl.a

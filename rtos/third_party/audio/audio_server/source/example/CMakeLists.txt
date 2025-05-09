@@ -1,0 +1,5 @@
+cmake_minimum_required( VERSION 2.8.8 )
+ADD_EXECUTABLE(rkaudio_play rkaudio_play.c)
+target_link_libraries(rkaudio_play librkaudio.so)
+target_link_libraries(rkaudio_play pthread)
+install(TARGETS rkaudio_play RUNTIME DESTINATION "bin/")

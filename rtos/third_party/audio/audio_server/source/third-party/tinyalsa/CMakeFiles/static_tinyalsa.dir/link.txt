@@ -1,0 +1,2 @@
+/home/sch/arm-rockchip830-linux-uclibcgnueabihf/bin/arm-rockchip830-linux-uclibcgnueabihf-ar qc libstatic_tinyalsa.a  CMakeFiles/static_tinyalsa.dir/mixer.c.o CMakeFiles/static_tinyalsa.dir/pcm.c.o
+/home/sch/arm-rockchip830-linux-uclibcgnueabihf/bin/arm-rockchip830-linux-uclibcgnueabihf-ranlib libstatic_tinyalsa.a

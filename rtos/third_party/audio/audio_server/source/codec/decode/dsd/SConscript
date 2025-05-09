@@ -1,0 +1,14 @@
+# RT-Thread building script for bridge
+
+import os
+from building import *
+
+cwd = GetCurrentDir()
+#src = Glob('dsd2pcm_conv.c') + Glob('common.c');
+src = Glob('hifi_dsd2pcm_conv.c') + Glob('common.c');
+
+CPPPATH = [cwd]
+
+group = DefineGroup('Audio_server', src, depend = ['AUDIO_USING_SOURCE_CODE', 'AUDIO_DECODER_DSD'], CPPPATH = CPPPATH)
+
+Return('group')

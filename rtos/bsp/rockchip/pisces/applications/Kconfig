@@ -1,0 +1,84 @@
+menu "Pisces application"
+
+menuconfig RT_USING_OLPC_DEMO
+    bool "olpc demo enable"
+    default n
+
+if RT_USING_OLPC_DEMO
+    choice
+        prompt "olpc app load mode"
+        default OLPC_STATICLD_ENABLE
+        config OLPC_STATICLD_ENABLE
+            bool "static load mode"
+        config OLPC_DLMODULE_ENABLE
+            bool "dynamic load mode"
+            depends on RT_USING_CUSTOM_DLMODULE
+    endchoice
+
+    config OLPC_APP_SRCSAVER_ENABLE
+        bool "olpc screen saver enable"
+        default n
+
+    config OLPC_APP_CLOCK_ENABLE
+        bool "olpc clock demo select"
+        default n
+
+    if OLPC_APP_CLOCK_ENABLE
+        config OLPC_APP_CLOCK_BLN_ENABLE
+            bool "olpc clock breathlight enable"
+            default y
+
+        choice
+            prompt "olpc clock style select"
+            default OLPC_APP_CLOCK_STYLE_ROUND_ARABIC
+
+            config OLPC_APP_CLOCK_STYLE_ROUND_ARABIC
+                bool "select round disc with Arabic number"
+
+            config OLPC_APP_CLOCK_STYLE_ROUND_ROMAN332
+                bool "select round disc with Roman number base on RGB332"
+
+            config OLPC_APP_CLOCK_STYLE_ROUND_ROMAN565
+                bool "select round disc with Roman number base on RGB565"
+        endchoice
+
+    endif
+
+    config OLPC_APP_EBOOK_ENABLE
+        bool "olpc ebook demo select"
+        default n
+
+    config OLPC_APP_BLOCK_ENABLE
+        bool "olpc block game select"
+        default n
+
+    config OLPC_APP_SNAKE_ENABLE
+        bool "olpc snake game select"
+        default n
+
+    config OLPC_APP_NOTE_ENABLE
+        bool "olpc note demo select"
+        depends on RT_USING_DTCM_HEAP
+        default n
+
+    config OLPC_APP_XSCREEN_ENABLE
+        bool "olpc x-screen demo select"
+        depends on RT_USING_DTCM_HEAP
+        default n
+
+    config OLPC_APP_JUPITER_ENABLE
+        bool "olpc jupiter demo select"
+        depends on RT_USING_DTCM_HEAP
+        default n
+
+    config OLPC_APP_BLN_ENABLE
+        bool "olpc breathing light demo select"
+        depends on (!RT_USING_DTCM_HEAP) && (RT_USING_DSPFW_BUILTIN) && (!OLPC_DLMODULE_ENABLE)
+        default n
+
+    config OLPC_APP_LYRIC_ENABLE
+        bool "olpc lyric demo select"
+        default n
+endif
+
+endmenu

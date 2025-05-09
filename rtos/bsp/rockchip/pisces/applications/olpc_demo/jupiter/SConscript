@@ -1,0 +1,12 @@
+# Import('RTT_ROOT')
+# Import('rtconfig')
+from building import *
+
+src  = Glob('*.c')
+src += Glob('resource/*.c')
+cwd  = GetCurrentDir()
+LOCAL_CPPPATH = [cwd]
+
+group = DefineGroup('jupiter', src, depend = ['OLPC_APP_JUPITER_ENABLE'], LOCAL_CPPPATH = LOCAL_CPPPATH)
+
+Return('group')

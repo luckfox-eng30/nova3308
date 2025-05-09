@@ -1,0 +1,67 @@
+{
+    "pipe_0": {
+        "node_0": {
+            "node_opts": {
+                "node_name"       : "rkisp"
+            },
+            "node_opts_extra": {
+                "node_buff_type"  : 0,
+                "node_buff_count" : 4,
+                "node_buff_size"  : 1382400
+            },
+            "stream_opts": {
+                "stream_output"   : "image:nv12_0",
+                "stream_fmt_out"  : "image:nv12"
+            },
+            "stream_opts_extra": {
+                "opt_entity_name" : "rkispp_scale1",
+                "opt_width"       : 1280,
+                "opt_height"      : 720,
+                "opt_vir_width"   : 1280,
+                "opt_vir_height"  : 720,
+                "opt_buf_type"    : 1,
+                "opt_mem_type"    : 4,
+                "opt_use_libv4l2" : 1,
+                "opt_colorspace"  : 0
+            }
+        },
+        "node_1": {
+            "node_opts": {
+                "node_name"       : "rkrga"
+            },
+            "node_opts_extra": {
+                "node_buff_type"  : 0,
+                "node_buff_count" : 4,
+                "node_buff_size"  : 360000
+            },
+            "stream_opts": {
+                "stream_input"    : "image:nv12_0",
+                "stream_output"   : "image:nv21_0",
+                "stream_fmt_in"   : "image:nv12",
+                "stream_fmt_out"  : "image:nv21"
+            },
+            "stream_opts_extra": {
+                "opt_trans_rect"  : "(0,0,1280,720)->(0,0,1280,720)",
+                "opt_trans_rotate": 0
+            }
+        },
+        "node_2": {
+            "node_opts": {
+                "node_name"       : "st_asteria"
+            },
+            "node_opts_extra": {
+                "node_buff_type"  : 1,
+                "node_buff_count" : 0
+            },
+            "stream_opts": {
+                "stream_input"    : "image:nv21_0",
+                "stream_output"   : "nn:stasteria_0",
+                "stream_fmt_in"   : "image:nv21",
+                "stream_fmt_out"  : "nn:stasteria"
+            },
+            "stream_opts_extra": {
+                "opt_stasteria_detect" : "face,face_distance,face_attribute,face_feature,hand,body"
+            }
+        }
+    }
+}

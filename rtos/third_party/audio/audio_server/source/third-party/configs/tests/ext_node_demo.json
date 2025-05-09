@@ -1,0 +1,51 @@
+{
+    "pipe_0": {
+        "node_0": {
+            "node_opts": {
+                "node_name"       : "fread"
+            },
+            "node_opts_extra": {
+                "node_source_uri" : "/data/test.h264",
+                "node_buff_type"  : 0,
+                "node_buff_count" : 4,
+                "node_buff_size"  : 1048576
+            },
+            "stream_opts": {
+                "stream_output"   : "image:h264_0",
+                "stream_fmt_out"  : "image:h264"
+            },
+            "stream_opts_extra": {
+                "opt_read_size"   : 1048576
+            }
+        },
+        "node_1": {
+            "node_opts": {
+                "node_name"       : "rockit_demo"
+            },
+            "node_opts_extra": {
+                "node_buff_type"  : 1
+            },
+            "stream_opts": {
+                "stream_input"    : "image:h264_0",
+                "stream_output"   : "image:h264_1",
+                "stream_fmt_in"   : "image:h264",
+                "stream_fmt_out"  : "image:h264"
+            },
+            "stream_opts_extra": {
+            }
+        },
+        "node_2": {
+            "node_opts": {
+                "node_name"       : "fwrite"
+            },
+            "stream_opts": {
+                "stream_input"    : "image:h264_1",
+                "stream_fmt_in"   : "image:h264"
+            },
+            "node_opts_extra": {
+                "node_source_uri" : "/data/out.h264",
+                "node_buff_count" : 0
+            }
+        }
+    }
+}

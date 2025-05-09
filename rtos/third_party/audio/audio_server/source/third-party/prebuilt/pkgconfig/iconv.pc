@@ -1,0 +1,20 @@
+# ICONV reference implementation pkg-config file
+
+# prefix=${ROCKIT_ROOT}/third-party/prebuilt
+# libdir=${prefix}/arm32
+# includedir=${prefix}/headers/iconv/include
+
+prefix=/usr/local
+exec_prefix=${prefix}
+includedir=${prefix}/include
+libdir=${exec_prefix}/lib
+
+Name: iconv
+Description: GNU LIBICONV - character set conversion library
+URL: https://github.com/winlibs/libiconv/tree/master/source
+Version: 1.15
+Requires:
+Conflicts:
+Libs: -L${libdir} -liconv
+Libs.private:
+Cflags: -I${includedir}

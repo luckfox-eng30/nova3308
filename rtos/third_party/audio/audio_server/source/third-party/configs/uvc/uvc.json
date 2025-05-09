@@ -1,0 +1,30 @@
+{
+    "pipe_0": {
+        "node_0": {
+            "node_opts": {
+                "node_name"       : "rkisp"
+            },
+            "node_opts_extra": {
+                "node_source_uri" : "/dev/media1",
+                "node_buff_type"  : 0,
+                "node_buff_count" : 4,
+                "node_buff_size"  : 1382400
+            },
+            "stream_opts": {
+                "stream_output"   : "image:nv12_0",
+                "stream_fmt_out"  : "image:nv12"
+            },
+            "stream_opts_extra": {
+                "opt_entity_name" : "rkispp_scale0",
+                "opt_width"       : 1280,
+                "opt_height"      : 720,
+                "opt_vir_width"   : 1280,
+                "opt_vir_height"  : 720,
+                "opt_buf_type"    : 1,
+                "opt_mem_type"    : 4,
+                "opt_use_libv4l2" : 1,
+                "opt_colorspace"  : 0
+            }
+        }
+    }
+}

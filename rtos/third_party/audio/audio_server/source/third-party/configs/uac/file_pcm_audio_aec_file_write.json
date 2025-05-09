@@ -1,0 +1,74 @@
+{
+    "pipe_0": {
+        "node_0": {
+            "node_opts": {
+                "node_name"       : "fread"
+            },
+            "node_opts_extra": {
+                "node_source_uri" : "/userdata/test/p_buf_file.pcm",
+                "node_buff_type"  : 0,
+                "node_buff_count" : 4,
+                "node_buff_size"  : 4096,
+                "node_buff_alloc_type" : "malloc"
+            },
+            "stream_opts_extra": {
+                "opt_samaple_rate": 16000,
+                "opt_format"      : "audio:pcm_16",
+                "opt_channel"     : 6,
+                "opt_channel_layout"  : "int64:63",
+                "opt_read_size"   : 3072
+            },
+            "stream_opts": {
+                "stream_output"   : "audio:pcm_0",
+                "stream_uid"      : "file:0",
+                "stream_fmt_out"  : "audio:pcm_16"
+            }
+        },
+        "node_1": {
+            "node_opts": {
+                "node_name"       : "skv_aec"
+            },
+            "node_opts_extra": {
+                "node_buff_type"  : 0,
+                "node_buff_count" : 4,
+                "node_buff_size"  : 1048,
+                "node_buff_alloc_type" : "malloc"
+            },
+            "stream_opts": {
+                "stream_input"    : "audio:pcm_0",
+                "stream_output"   : "audio:pcm_1",
+                "stream_fmt_in"   : "audio:pcm_16",
+                "stream_fmt_out"  : "audio:pcm_16"
+            },
+            "stream_opts_extra": {
+                "opt_samaple_rate": 16000,
+                "opt_format"      : "audio:pcm_16",
+                "opt_channel"     : 6,
+                "opt_rec_channel_layout" : "int64:60",
+                "opt_ref_channel_layout" : "int64:3",
+                "opt_channel_layout"  : "int64:63",
+                "opt_aec_enable"  : 27,
+                "opt_aec_nlp_uri"  : "/userdata/test/nlp.bin",
+                "opt_aec_nlp_plus_uri"  : "/userdata/test/nlp_plus.bin"
+            }
+        },
+        "node_2": {
+            "node_opts": {
+                "node_name"       : "fwrite"
+            },
+            "node_opts_extra": {
+                "node_source_uri" : "/userdata/test/p_buf_file_out.pcm"
+            },
+            "stream_opts": {
+                "stream_input"    : "audio:pcm_1",
+                "stream_fmt_in"   : "audio:pcm_16"
+            },
+            "stream_opts_extra": {
+                "opt_samaple_rate": 16000,
+                "opt_format"      : "audio:pcm_16",
+                "opt_channel"     : 4,
+                "opt_channel_layout"  : "int64:15"
+            }
+        }
+    }
+}

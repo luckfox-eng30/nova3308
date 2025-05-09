@@ -1,0 +1,27 @@
+{
+    "pipe_0": {
+        "node_3": {
+            "node_opts": {
+                "node_name"       : "rockx"
+            },
+            "node_opts_extra": {
+                "node_buff_type"  : 1,
+                "node_buff_count" : 0
+            },
+            "stream_opts": {
+                "stream_input"    : "image:nv12_0",
+                "stream_output"   : "nn:posebody_0",
+                "stream_fmt_in"   : "image:nv12",
+                "stream_fmt_out"  : "nn:posebody",
+                "stream_mode_in"  : "remain_newest"
+            },
+            "stream_opts_extra": {
+                "opt_rockx_model" : "rockx_pose_body_v2",
+                "opt_width"       : 640,
+                "opt_height"      : 480,
+                "opt_md_roi_cnt"  : 5,
+                "opt_md_roi_rect" : "none"
+            }
+        }
+    }
+}

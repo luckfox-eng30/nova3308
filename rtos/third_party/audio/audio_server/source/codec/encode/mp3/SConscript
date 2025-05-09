@@ -1,0 +1,15 @@
+# RT-Thread building script for bridge
+
+import os
+from building import *
+
+cwd = GetCurrentDir()
+objs = []
+list = os.listdir(cwd)
+src = Glob('*.c') + Glob('source/*.c')
+
+CPPPATH = [cwd] + [cwd + '/source']
+
+group = DefineGroup('Audio_server', src, depend = ['AUDIO_USING_SOURCE_CODE', 'AUDIO_ENCODER_MP3'], CPPPATH = CPPPATH)
+
+Return('group')

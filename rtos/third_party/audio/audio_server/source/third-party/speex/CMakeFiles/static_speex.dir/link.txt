@@ -1,0 +1,2 @@
+/home/sch/arm-rockchip830-linux-uclibcgnueabihf/bin/arm-rockchip830-linux-uclibcgnueabihf-ar qc libstatic_speex.a  CMakeFiles/static_speex.dir/src/speex_resample.c.o
+/home/sch/arm-rockchip830-linux-uclibcgnueabihf/bin/arm-rockchip830-linux-uclibcgnueabihf-ranlib libstatic_speex.a

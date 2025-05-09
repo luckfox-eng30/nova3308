@@ -1,0 +1,10 @@
+# boringssl/openssl reference implementation pkg-config file
+
+# prefix=${ROCKIT_ROOT}/third-party/prebuilt
+# libdir=${prefix}/arm32
+# includedir=${prefix}/headers/boringssl/include
+
+Name: OpenSSL
+Description: Secure Sockets Layer and cryptography libraries and tools
+Version: 1.0.2g
+Requires: libssl libcrypto

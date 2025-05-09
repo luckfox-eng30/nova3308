@@ -1,0 +1,14 @@
+# RT-Thread building script for bridge
+
+import os
+from building import *
+
+cwd = GetCurrentDir()
+
+src  = Glob('*.c') + Glob('hifi_ape/*.c')
+CPPPATH = [cwd] + [cwd + '/include']
+LOCAL_CCFLAGS = ' -D_HIFI_APE_DEC -DA_CORE_DECODE -DHIFI_APE_DECODE'
+
+group = DefineGroup('Audio_server', src, depend = ['AUDIO_USING_SOURCE_CODE', 'AUDIO_DECODER_APE'], CPPPATH = CPPPATH, LOCAL_CCFLAGS = LOCAL_CCFLAGS)
+
+Return('group')

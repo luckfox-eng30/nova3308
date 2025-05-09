@@ -1,0 +1,21 @@
+# Opus codec reference implementation pkg-config file
+
+
+# prefix=${ROCKIT_ROOT}/third-party/prebuilt
+# libdir=${prefix}/arm32
+# includedir=${prefix}/headers/libopus/include
+
+prefix=/usr/local
+exec_prefix=${prefix}
+includedir=${prefix}/include
+libdir=${exec_prefix}/lib
+
+Name: Opus
+Description: Opus IETF audio codec (floating-point build)
+URL: https://opus-codec.org/
+Version: 1.3.1-4-gad8fe90
+Requires:
+Conflicts:
+Libs: -L${libdir} -lopus
+Libs.private: -lm
+Cflags: -I${includedir}/opus

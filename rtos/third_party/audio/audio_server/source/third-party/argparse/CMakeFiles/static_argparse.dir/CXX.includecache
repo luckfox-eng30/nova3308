@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/sch/rockit/third-party/argparse/argparse.cpp
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+assert.h
+-
+errno.h
+-
+argparse.h
+/home/sch/rockit/third-party/argparse/argparse.h
+
+/home/sch/rockit/third-party/argparse/argparse.h
+stdint.h
+-
+
