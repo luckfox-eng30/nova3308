@@ -1,0 +1,77 @@
+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+/*
+ * Copyright (c) 2018 Fuzhou Rockchip Electronics Co., Ltd
+ */
+
+/dts-v1/;
+
+#include "luckfox-rk3308b-evb-v10.dtsi"
+
+/ {
+	model = "Luckfox RK3308b evb";
+	compatible = "rockchip,rk3308b-evb-amic-v10", "rockchip,rk3308";
+
+	leds: leds {
+		compatible = "gpio-leds";
+		work_led: work {
+			gpios = <&gpio0 RK_PA1 GPIO_ACTIVE_HIGH>;
+			linux,default-trigger = "heartbeat";
+		};
+	};
+
+	acodec_sound: acodec-sound {
+		status = "okay";
+		compatible = "rockchip,multicodecs-card";
+		rockchip,card-name = "rk3308-acodec";
+		rockchip,codec-hp-det;
+		rockchip,mclk-fs = <256>;
+		rockchip,cpu = <&i2s_8ch_2>;
+		rockchip,codec = <&acodec>;
+	};
+
+	bluetooth_sound: bluetooth-sound {
+		status = "okay";
+		compatible = "rockchip,multicodecs-card";
+		rockchip,card-name = "rk3308-pcm-bluetooth";
+		rockchip,frame-master = <&dummy_codec>;
+		rockchip,bitclock-master = <&dummy_codec>;
+		rockchip,mclk-fs = <256>;
+		rockchip,cpu = <&i2s_2ch_0>;
+		rockchip,codec = <&dummy_codec>;
+		rockchip,format = "dsp_b";
+		rockchip,bitclock-inversion = <1>;
+		rockchip,wait-card-locked = <0>;
+	};
+
+	dummy_codec: dummy-codec {
+		compatible = "rockchip,dummy-codec";
+		#sound-dai-cells = <0>;
+	};
+};
+
+&acodec {
+	status = "okay";
+	rockchip,micbias1;
+	rockchip,micbias2;
+	rockchip,en-always-grps = <3>;
+	rockchip,adc-grps-route = <3 0 1 2>;
+	rockchip,no-hp-det;
+	rockchip,no-deep-low-power;
+	spk-ctl-gpios = <&gpio0 RK_PC4 GPIO_ACTIVE_HIGH>;
+};
+
+&i2s_2ch_0 {
+	#sound-dai-cells = <0>;
+	status = "okay";
+	rockchip,bclk-fs = <64>;
+};
+
+&vad {
+	status = "okay";
+	rockchip,audio-src = <&i2s_8ch_2>;
+	rockchip,det-channel = <0>;
+	rockchip,buffer-time-ms = <200>;
+	rockchip,mode = <1>;
+	#sound-dai-cells = <0>;
+};
+
